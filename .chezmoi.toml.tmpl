@@ -1,10 +1,14 @@
-{{- $personal := promptBoolOnce . "personal" "Personal machine? (true/false)" -}}
-{{- $work := promptBoolOnce . "work" "Work machine? (true/false)" -}}
 {{- $server := promptBoolOnce . "server" "Server machine? (true/false)" -}}
-{{- $development := promptBoolOnce . "development" "Development machine? (true/false)" -}}
 {{- $hostname := .chezmoi.hostname -}}
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $github_username := promptStringOnce . "github_username" "GitHub username" -}}
+
+{{/* work around unreliable hostname on darwin */}}
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname := output "scutil" "--get" "LocalHostName" | trim -}}
+{{- end -}}
+
 
 # Encryption with key stored in Lastpass
 encryption = "age"
@@ -17,9 +21,9 @@ encryption = "age"
     work = {{ $work }}
     server = {{ $server }}
     development = {{ $development }}
-    hostname = "{{ $hostname }}"
-    email = "{{ $email }}"
-    github_username = "{{ $github_username }}"
+    hostname = {{ $hostname | quote }}
+    email = {{ $email | quote }}
+    github_username = {{ $github_username | quote }}
 
 # Git configuration
 [git]

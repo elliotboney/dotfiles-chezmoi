@@ -131,12 +131,10 @@ else
     compleat
     cp
     history
-    # osx
     rsync
     screen
     ssh
     sudo
-    wpclitwo
     )
 fi
 
@@ -246,7 +244,7 @@ if command -v starship >/dev/null 2>&1; then
     eval "$(starship init zsh)"
     decho "✅ Starship (modern prompt) loaded"
 else
-    echo "⚠️  Starship not installed. Run: brew install starship"
+    echo "⚠️  Starship not installed. Run: brew install starship or curl -sS https://starship.rs/install.sh | sh"
 fi
 
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
