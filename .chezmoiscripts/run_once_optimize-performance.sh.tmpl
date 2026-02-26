@@ -12,11 +12,11 @@ echo "⚡ Optimizing dotfiles performance..."
 echo "🍎 Applying macOS performance optimizations..."
 
 # Faster key repeat
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -float 15
 
 # Faster window animations
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+defaults write -g NSWindowResizeTime -float 0.001
 
 # Faster dock animation
 defaults write com.apple.dock autohide-time-modifier -float 0.1
@@ -27,7 +27,7 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Disable unnecessary visual effects
 defaults write com.apple.dock launchanim -bool false
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
 
 # Optimize Finder
 defaults write com.apple.finder DisableAllAnimations -bool true
