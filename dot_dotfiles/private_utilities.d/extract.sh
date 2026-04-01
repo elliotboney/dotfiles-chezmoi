@@ -29,20 +29,25 @@ function installfont() {
   cp "${MYBASENAME}"/**/*.[oO][tT][fF] ~/Library/Fonts/ 2>/dev/null
   if [ $? -eq 0 ]; then
     echo -e "\t${BGreen}Installed OTF!${NC}"
-    rmf "${FONTFILE}"
+    rm -rf "${FONTFILE}"
     rm -rf "${MYBASENAME}/"
   else
     echo -e "\t${BRed}OTF not found in \"${MYBASENAME}\".${NC}"
     cp "${MYBASENAME}"/**/*.[tT][tT][fF] ~/Library/Fonts/ 2>/dev/null
     if [ $? -eq 0 ]; then
       echo -e "\t${BGreen}Installed TTF!${NC}"
-      rmf "${FONTFILE}"
+      rm -rf "${FONTFILE}"
       rm -rf "${MYBASENAME}/"
     else
       echo -e "\t${BRed}TTF not found either!${NC}"
     fi
   fi
 }
+
+_installfont() {
+  _files -g '*.zip'
+}
+compdef _installfont installfont
 
 function stpackageextract() {
   filename=$(basename "${1}")
