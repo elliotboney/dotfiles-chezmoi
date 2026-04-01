@@ -56,6 +56,7 @@ for zip_path in "${ZIP_FILES[@]}"; do
   # Derive output directory name from zip filename (strip .zip extension)
   zip_name="${zip_path:t}"          # basename
   dir_name="${zip_name:r}"          # remove extension
+  dir_name="${dir_name//+/ }"       # replace plus signs with spaces
   dest_dir="${zip_path:h}/${dir_name}"  # same directory as zip
 
   echo "${CYAN}──────────────────────────────────────────${RESET}"
