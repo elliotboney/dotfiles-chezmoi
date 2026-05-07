@@ -73,3 +73,14 @@ Session.vim
 *_REMOTE_*
 *.REMOVED.*
 *.orig
+
+# Added by iloom CLI
+**/.iloom/settings.local.json
+**/.iloom/package.iloom.local.json
+**/.claude/agents/iloom-*
+**/.claude/skills/iloom-*
+**/.claude/iloom-swarm-mcp-config-path
+
+# Added by iloom CLI
+**/.env.local
+**/.env.*.local
