@@ -81,6 +81,7 @@
   default = tracking
 [advice]
   statusHints = false
+  ignoredHook = false
 [diff]
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
@@ -118,3 +119,8 @@
 	diffFilter = delta --color-only
 [delta]
 	navigate = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
