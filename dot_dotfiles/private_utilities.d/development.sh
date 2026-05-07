@@ -1,3 +1,5 @@
+alias bunupdate='(cd ~/.bun/install/global && bun update)'
+
 function envswitch() {
     if [ ! "$1" ]
     then

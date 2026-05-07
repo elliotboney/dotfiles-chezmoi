@@ -1,8 +1,8 @@
 {{- $server := promptBoolOnce . "server" "Server machine? (true/false)" -}}
 {{- $hostname := .chezmoi.hostname -}}
+{{- $full_name := promptStringOnce . "full_name" "Full name (for git commits, etc)" -}}
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $github_username := promptStringOnce . "github_username" "GitHub username" -}}
-
 {{/* work around unreliable hostname on darwin */}}
 {{- $hostname := .chezmoi.hostname -}}
 {{- if eq .chezmoi.os "darwin" -}}
@@ -19,6 +19,7 @@ encryption = "age"
 [data]
     server = {{ $server }}
     hostname = {{ $hostname | quote }}
+    full_name = {{ $full_name | quote }}  
     email = {{ $email | quote }}
     github_username = {{ $github_username | quote }}
 
