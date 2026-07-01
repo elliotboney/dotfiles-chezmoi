@@ -57,7 +57,7 @@ require("lazy").setup({
       require("mason-lspconfig").setup({
         ensure_installed = { 
           "lua_ls", 
-          "tsserver", 
+          "ts_ls",
           "html", 
           "cssls",
           "jsonls",
@@ -72,7 +72,7 @@ require("lazy").setup({
       
       -- Setup language servers
       lspconfig.lua_ls.setup({ capabilities = capabilities })
-      lspconfig.tsserver.setup({ capabilities = capabilities })
+      lspconfig.ts_ls.setup({ capabilities = capabilities })
       lspconfig.html.setup({ capabilities = capabilities })
       lspconfig.cssls.setup({ capabilities = capabilities })
       lspconfig.jsonls.setup({ capabilities = capabilities })
